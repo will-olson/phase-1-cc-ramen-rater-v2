@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     detailImage.src = ramen.image;
     detailName.textContent = ramen.name;
     detailRestaurant.textContent = ramen.restaurant;
+    detailRating.textContent = `Rating: ${ramen.rating}`;
+    detailComment.textContent = `Comment: ${ramen.comment}`;
 
     console.log(`${ramen.name} clicked`);
     };
@@ -46,12 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((ramenData) => {
       const ramenMenu = document.getElementById('ramen-menu');
       ramenData.forEach(ramen => {
-        const ramenImg = document.createElement("img");
-        ramenImg.src = ramen.image;
-        ramenMenu.appendChild(ramenImg);
-      });
-    });
-  };
+        addRamenToDOM(ramen);
+      })
+    })
 
   const addRamenToDOM = (ramen) => {
     const ramenMenu = document.getElementById('ramen-menu');
@@ -59,7 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ramenImg.src = ramen.image;
     ramenImg.addEventListener("click", () => handleClick(ramen));
     ramenMenu.appendChild(ramenImg);
-};
+    };
+  };
 
 const main = () => {
   displayRamens ()
