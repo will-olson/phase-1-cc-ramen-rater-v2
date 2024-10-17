@@ -25,11 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
   
   const ramenNew = {
-    name: e.target.name.value,
-    restaurant: e.target.restaurant.value,
-    image: e.target.image.value,
-    rating: e.target.rating.value,
-    comment: e.target.comment.value
+    name: document.getElementById('new-name').value,
+    restaurant: document.getElementById('new-restaurant').value,
+    image: document.getElementById('new-image').value,
+    rating: document.getElementById('new-rating').value,
+    comment: document.getElementById('new-comment').value
   };
 
   fetch('http://localhost:3000/ramens', {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
   .then(response => response.json())
   .then(newRamen => {
-    addRamenToDOM(newRamen);
+    addRamenToDOM(ramenNew);
   });
 });
 };
