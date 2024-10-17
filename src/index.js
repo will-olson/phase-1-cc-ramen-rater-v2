@@ -9,8 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
     detailImage.src = ramen.image;
     detailName.textContent = ramen.name;
     detailRestaurant.textContent = ramen.restaurant;
-    detailRating.textContent = `Rating: ${ramen.rating}`;
-    detailComment.textContent = `Comment: ${ramen.comment}`;
+    
+    const detailRating = document.getElementById('rating-display');
+     const detailComment = document.getElementById('comment-display');
+
+  detailRating.textContent = ramen.rating;
+  detailComment.textContent = ramen.comment;
 
     console.log(`${ramen.name} clicked`);
     };
